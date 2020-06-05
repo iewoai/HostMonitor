@@ -5,7 +5,7 @@ import logging
 import paramiko
 import time
 logging.basicConfig(
-    filename='log/hostUse_{}.log'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))),
+    filename='hostUse.log',
     format='%(message)s',
     filemode='w',
     level=logging.INFO
@@ -96,40 +96,11 @@ class SSHClient():
 
 if __name__ == '__main__':
     ip_list = [
-    '47.244.202.68',
-    '47.52.31.22',
-    '47.244.5.195',
-    '47.244.45.179',
-    '47.244.133.17',
-    '47.240.226.198',
-    '47.56.222.172',
-    '47.56.241.135',
-    '47.57.28.64',
-    '47.75.4.100',
-    '47.56.199.24',
-    '47.52.20.36',
-    '47.52.99.123',
-    '47.244.144.197',
-    '47.56.193.71',
-    '47.56.91.103',
-    '47.52.227.14',
-    '47.52.253.226',
-    '47.56.205.186',
-    '47.90.50.213',
-    '47.57.21.145',
-    '47.57.24.93',
-    '47.57.24.74',
-    '47.56.219.93',
-    '47.57.22.8',
-    '47.57.20.26',
-    '47.244.38.203',
-    '47.57.24.157',
-    '47.57.24.191',
-    '47.89.13.160'
+    'your ip'
     ]
     logging.info('\n\n###########检测开始时间{}，本次检测共有{}个服务器##########'.format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())), len(ip_list)))
     for ip in ip_list:
         logging.info('#########################{}####################'.format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))))
-        client = SSHClient(hostname=ip, port=22, username='root', pkey='id_rsa')
+        client = SSHClient(hostname=ip, port=22, username='user name', pkey='your key')
         client.get_Use()
 
